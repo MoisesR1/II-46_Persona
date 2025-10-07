@@ -40,8 +40,8 @@
     End Sub
 
     Public Sub New(nombre As String, apellido As String, edad As Integer)
-        Me.nombre = nombre
-        Me.apellido = apellido
-        Me.edad = edad
+        Me.Nombre = nombre
+        Me.Apellido = apellido
+        Me.Edad = edad
     End Sub
 End Class
