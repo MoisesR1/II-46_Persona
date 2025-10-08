@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FormPersona.aspx.vb" Inherits="Persona.FormPersona" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+     <asp:TextBox ID="Txt_nombre" Placeholder="Nombre" runat="server"></asp:TextBox>
+  <asp:TextBox ID="Txt_apellido" Placeholder="Apellido" runat="server"></asp:TextBox>
+  <asp:TextBox ID="Txt_edad" Placeholder="Edad" runat="server"></asp:TextBox>
+ <asp:Button ID="Btn_guardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="Btn_guardar_Click" />
+ <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
+
     <asp:GridView ID="Gv_personas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource">
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
