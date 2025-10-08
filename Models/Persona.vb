@@ -5,28 +5,28 @@
 
     Public Property Nombre As String
         Get
-            Return Nombre
+            Return _nombre
         End Get
         Set(value As String)
-            nombre = value
+            _nombre = value
         End Set
     End Property
 
     Public Property Apellido As String
         Get
-            Return Apellido
+            Return _apellido
         End Get
         Set(value As String)
-            apellido = value
+            _apellido = value
         End Set
     End Property
 
     Public Property Edad As Integer
         Get
-            Return Edad
+            Return _edad
         End Get
         Set(value As Integer)
-            edad = value
+            _edad = value
         End Set
     End Property
 

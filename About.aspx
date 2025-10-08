@@ -10,7 +10,7 @@
          <asp:TextBox ID="Txt_apellido" runat="server"></asp:TextBox>
          <asp:TextBox ID="Txt_edad" runat="server"></asp:TextBox>
         <asp:Button ID="Btn_guardar" runat="server" Text="Guardar" OnClick="Btn_guardar_Click" />
-        <asp:Label ID="lbl_mensaje" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
     </main>
 </asp:Content>
