@@ -7,12 +7,16 @@
  <asp:Button ID="Btn_guardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="Btn_guardar_Click" />
  <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
-    <asp:GridView ID="Gv_personas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource">
+    <asp:GridView ID="Gv_personas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource" Width="742px" OnRowDeleting="Gv_personas_RowDeleting" OnRowEditing="Gv_personas_RowEditing" OnRowCancelingEdit="Gv_personas_RowCancelingEdit" OnRowUpdating="Gv_personas_RowUpdating" >
         <Columns>
+            <asp:CommandField ShowSelectButton="true"  ControlStyle-CssClass="btn btn-success" />
+            <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-primary" />
             <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
             <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
+            <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger"  />
+           
         </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:II-46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II-46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Personas]"></asp:SqlDataSource>

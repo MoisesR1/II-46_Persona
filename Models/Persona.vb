@@ -1,4 +1,5 @@
 ﻿Public Class Persona
+    Private _id As Integer
     Private _nombre As String
     Private _apellido As String
     Private _edad As Integer
@@ -9,6 +10,15 @@
         End Get
         Set(value As String)
             _nombre = value
+        End Set
+    End Property
+
+    Public Property Id As Integer
+        Get
+            Return _id
+        End Get
+        Set(value As Integer)
+            _id = value
         End Set
     End Property
 
@@ -32,11 +42,11 @@
 
     Public Sub New()
         'Constructor por defecto
-        Me.nombre = "No hay nombre"
+        Me.Nombre = "No hay nombre"
     End Sub
 
     Public Sub New(edad As Integer)
-        Me.edad = edad
+        Me.Edad = edad
     End Sub
 
     Public Sub New(nombre As String, apellido As String, edad As Integer)

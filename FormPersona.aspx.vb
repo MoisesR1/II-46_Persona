@@ -13,4 +13,24 @@
         lbl_mensaje.Text = dbHelper.create(persona)
 
     End Sub
+
+    Protected Sub Gv_personas_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Try
+            Dim id As Integer = Convert.ToInt32(Gv_personas.DataKeys(e.RowIndex).Value)
+            dbHelper.delete(id)
+            e.Cancel = True
+            Gv_personas.DataBind()
+        Catch ex As Exception
+            lbl_mensaje.Text = "Error al eliminar la persona: " & ex.Message
+
+        End Try
+    End Sub
+
+    Protected Sub Gv_personas_RowCancelingEdit(sender As Object, e As GridViewCancelEditEventArgs)
+
+    End Sub
+
+    Protected Sub Gv_personas_RowUpdating(sender As Object, e As GridViewUpdateEventArgs)
+
+    End Sub
 End Class
