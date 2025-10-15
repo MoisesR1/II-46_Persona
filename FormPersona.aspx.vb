@@ -11,6 +11,7 @@
         persona.Apellido = Txt_apellido.Text
         persona.Edad = Txt_edad.Text
         lbl_mensaje.Text = dbHelper.create(persona)
+        Gv_personas.DataBind()
 
     End Sub
 
@@ -55,8 +56,30 @@
 
     Protected Sub Gv_personas_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-        Dim id As Integer = Convert.ToInt32(Gv_personas.DataKeys(e.Equals(id)))
+        Dim row As GridViewRow = Gv_personas.SelectedRow()
+        Dim id As Integer = Convert.ToInt32(row.Cells(2).Text)
         Dim persona As Persona = New Persona()
+
+        Txt_nombre.Text = row.Cells(3).Text
+        Txt_apellido.Text = row.Cells(4).Text
+        Txt_edad.Text = row.Cells(5).Text
+
+        editando.Value = id
+
+
+    End Sub
+
+    Protected Sub BtnActualizar_Click(sender As Object, e As EventArgs)
+
+        Dim persona As Persona = New Persona With {
+            .Nombre = Txt_nombre.Text(),
+            .Apellido = Txt_apellido.Text(),
+            .Edad = Txt_edad.Text(),
+            .Id = editando.Value()
+        }
+        dbHelper.update(persona)
+        Gv_personas.DataBind()
+        Gv_personas.EditIndex = -1
 
     End Sub
 End Class

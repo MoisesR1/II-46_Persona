@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class FormPersona
 
     '''<summary>
+    '''Control editando.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents editando As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''Control Txt_nombre.
     '''</summary>
     '''<remarks>
@@ -48,6 +57,15 @@ Partial Public Class FormPersona
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Btn_guardar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control BtnActualizar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnActualizar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control lbl_mensaje.
