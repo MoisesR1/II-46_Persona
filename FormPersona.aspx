@@ -7,7 +7,7 @@
  <asp:Button ID="Btn_guardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="Btn_guardar_Click" />
  <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
-    <asp:GridView ID="Gv_personas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource" Width="742px" OnRowDeleting="Gv_personas_RowDeleting" OnRowEditing="Gv_personas_RowEditing" OnRowCancelingEdit="Gv_personas_RowCancelingEdit" OnRowUpdating="Gv_personas_RowUpdating" >
+    <asp:GridView ID="Gv_personas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource" Width="742px" OnRowDeleting="Gv_personas_RowDeleting" OnRowEditing="Gv_personas_RowEditing" OnRowCancelingEdit="Gv_personas_RowCancelingEdit" OnRowUpdating="Gv_personas_RowUpdating" OnSelectedIndexChanged="Gv_personas_SelectedIndexChanged" >
         <Columns>
             <asp:CommandField ShowSelectButton="true"  ControlStyle-CssClass="btn btn-success" />
             <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-primary" />
