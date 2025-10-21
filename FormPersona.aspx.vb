@@ -10,7 +10,16 @@
         Persona.Nombre = Txt_nombre.Text
         persona.Apellido = Txt_apellido.Text
         persona.Edad = Txt_edad.Text
-        lbl_mensaje.Text = dbHelper.create(persona)
+
+        If dbHelper.create(persona) Then
+            lbl_mensaje.Text = "Persona guardada correctamente"
+            Txt_nombre.Text = ""
+            Txt_apellido.Text = ""
+            Txt_edad.Text = ""
+        Else
+            lbl_mensaje.Text = "Error al guardar la persona"
+        End If
+
         Gv_personas.DataBind()
 
     End Sub
