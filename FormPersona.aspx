@@ -8,6 +8,7 @@
   <asp:TextBox ID="Txt_edad" Placeholder="Edad" runat="server"></asp:TextBox>
   <asp:Button ID="Btn_guardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="Btn_guardar_Click" />
   <asp:Button ID="BtnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar" OnClick="BtnActualizar_Click" />
+  
   <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
     

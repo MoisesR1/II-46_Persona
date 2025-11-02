@@ -66,7 +66,7 @@
     Protected Sub Gv_personas_SelectedIndexChanged(sender As Object, e As EventArgs)
 
         Dim row As GridViewRow = Gv_personas.SelectedRow()
-        Dim id As Integer = Convert.ToInt32(row.Cells(2).Text)
+
         Dim persona As Persona = New Persona()
 
         Txt_nombre.Text = row.Cells(3).Text
