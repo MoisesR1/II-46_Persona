@@ -73,7 +73,9 @@
         Txt_apellido.Text = row.Cells(4).Text
         Txt_edad.Text = row.Cells(5).Text
 
-        editando.Value = id
+        editando.Value = ID
+        Btn_guardar.Visible = False
+        BtnActualizar.Visible = True
 
 
     End Sub
@@ -89,6 +91,11 @@
         dbHelper.update(persona)
         Gv_personas.DataBind()
         Gv_personas.EditIndex = -1
+        Txt_nombre.Text = ""
+        Txt_apellido.Text = ""
+        Txt_edad.Text = ""
+        Btn_guardar.Visible = True
+        BtnActualizar.Visible = False
 
     End Sub
 End Class
