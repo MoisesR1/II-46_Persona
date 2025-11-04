@@ -7,7 +7,14 @@
     End Sub
 
     Protected Sub Btn_guardar_Click(sender As Object, e As EventArgs)
-        Persona.Nombre = Txt_nombre.Text
+
+        If Txt_nombre.Text = "" Or Txt_apellido.Text = "" Or Txt_edad.Text = "" Then
+            lbl_mensaje.Text = "Por favor complete todos los campos"
+            lbl_mensaje.CssClass = "alert alert-danger"
+            Return
+        End If
+
+        persona.Nombre = Txt_nombre.Text
         persona.Apellido = Txt_apellido.Text
         persona.Edad = Txt_edad.Text
 
@@ -56,6 +63,7 @@
         Gv_personas.DataBind()
         e.Cancel = True
         Gv_personas.EditIndex = -1
+        Btn_guardar.Visible = True
 
     End Sub
 
@@ -77,6 +85,7 @@
         editando.Value = ID
         Btn_guardar.Visible = False
         BtnActualizar.Visible = True
+        BtnCancelar.Visible = True
 
 
     End Sub
@@ -92,11 +101,20 @@
         dbHelper.update(persona)
         Gv_personas.DataBind()
         Gv_personas.EditIndex = -1
+        LimpiarCampos()
+
+    End Sub
+
+    Protected Sub LimpiarCampos()
         Txt_nombre.Text = ""
         Txt_apellido.Text = ""
         Txt_edad.Text = ""
         Btn_guardar.Visible = True
         BtnActualizar.Visible = False
+        BtnCancelar.Visible = False
+    End Sub
 
+    Protected Sub BtnCancelar_Click(sender As Object, e As EventArgs)
+        LimpiarCampos()
     End Sub
 End Class
