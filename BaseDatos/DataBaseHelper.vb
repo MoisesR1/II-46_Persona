@@ -20,7 +20,7 @@ Public Class DataBaseHelper
                 End Using
             End Using
         Catch ex As Exception
-            Return False
+            Return "Error:" + ex.Message
 
         End Try
         Return True
@@ -40,6 +40,7 @@ Public Class DataBaseHelper
                 End Using
             End Using
         Catch ex As Exception
+            Return "Error:" + ex.Message
         End Try
         Return "Persona Eliminada"
     End Function
@@ -61,6 +62,7 @@ Public Class DataBaseHelper
                 End Using
             End Using
         Catch ex As Exception
+            Return "Error:" + ex.Message
         End Try
         Return "Persona Actualizada"
     End Function

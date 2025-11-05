@@ -1,4 +1,6 @@
-﻿Public Class FormPersona
+﻿Imports Persona.Utils
+
+Public Class FormPersona
     Inherits System.Web.UI.Page
     Public persona As New Persona()
     Protected dbHelper As New DataBaseHelper()
@@ -9,8 +11,7 @@
     Protected Sub Btn_guardar_Click(sender As Object, e As EventArgs)
 
         If Txt_nombre.Text = "" Or Txt_apellido.Text = "" Or Txt_edad.Text = "" Then
-            lbl_mensaje.Text = "Por favor complete todos los campos"
-            lbl_mensaje.CssClass = "alert alert-danger"
+            ShowSwalError(Me, "Debe completar todos los campos")
             Return
         End If
 
@@ -18,11 +19,20 @@
         persona.Apellido = Txt_apellido.Text
         persona.Edad = Txt_edad.Text
 
+        If persona.Edad < 0 Or persona.Edad > 120 Then
+            lbl_mensaje.Text = "Por favor ingrese una edad válida"
+            lbl_mensaje.CssClass = "alert alert-danger"
+            Return
+        End If
+
         If dbHelper.create(persona) Then
+            ShowSwal(Me, "Persona creada")
             lbl_mensaje.Text = "Persona guardada correctamente"
+            lbl_mensaje.CssClass = "alert alert-success"
             Txt_nombre.Text = ""
             Txt_apellido.Text = ""
             Txt_edad.Text = ""
+            Return
         Else
             lbl_mensaje.Text = "Error al guardar la persona"
         End If
@@ -38,7 +48,7 @@
             e.Cancel = True
             Gv_personas.DataBind()
         Catch ex As Exception
-            lbl_mensaje.Text = "Error al eliminar la persona: " & ex.Message
+            ShowSwalError(Me, "Error al eliminar la persona: " & ex.Message)
 
         End Try
     End Sub
