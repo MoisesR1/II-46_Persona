@@ -2,6 +2,8 @@
     Public Module SwalUtils
 
         Public Sub ShowSwalMessage(Page As System.Web.UI.Page, title As String, message As String, icon As String)
+            title = title.Replace("'", "\'")
+            message = message.Replace("'", "\'")
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), Guid.NewGuid().ToString, ShowSwalScript(title, message, icon), True)
         End Sub
         Public Function ShowSwalScript(title As String, message As String, icon As String) As String
