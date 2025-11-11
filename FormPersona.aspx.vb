@@ -69,7 +69,12 @@ Public Class FormPersona
             .Edad = e.NewValues("Edad"),
             .Id = id
         }
-        dbHelper.update(persona)
+        Dim mensaje = dbHelper.update(persona)
+        If mensaje.Contains("Error") Then
+            ShowSwalError(Me, "Debe completar todos los campos")
+        Else
+            ShowSwal(Me, mensaje)
+        End If
         Gv_personas.DataBind()
         e.Cancel = True
         Gv_personas.EditIndex = -1

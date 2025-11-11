@@ -11,10 +11,10 @@
         End Function
 
         Public Sub ShowSwalError(Page As System.Web.UI.Page, title As String, message As String)
-            ShowSwalMessage(Page, title, message, "error")
+            ShowSwalMessage(Page, title, message, "Error")
         End Sub
         Public Sub ShowSwalError(Page As System.Web.UI.Page, message As String)
-            ShowSwalMessage(Page, "error", message, "error")
+            ShowSwalMessage(Page, "Error", message, "error")
         End Sub
         Public Sub ShowSwal(Page As System.Web.UI.Page, title As String, Optional message As String = "", Optional icon As String = "success")
             ShowSwalMessage(Page, title, message, icon)
